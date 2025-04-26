@@ -21,21 +21,21 @@ const Footer: React.FC = () => {
               Crafting digital experiences with innovative technology solutions for the modern web.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Twitter">
+              {/* <a href="#" target="_blank" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="LinkedIn">
+              </a> */}
+              <a href="https://www.linkedin.com/company/106997113/admin/dashboard/" target="_blank" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="GitHub">
+              {/* <a href="#" target="_blank" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="GitHub">
                 <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Instagram">
+              </a> */}
+              <a href="https://www.instagram.com/webscoders/?utm_source=ig_web_button_share_sheet" target="_blank" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Facebook">
+              {/* <a href="#" target="_blank" className="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-white" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {['Home', 'Services', 'Portfolio', 'About', 'Blog', 'Contact'].map((item) => (
+              {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link 
                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
@@ -67,8 +67,7 @@ const Footer: React.FC = () => {
               {[
                 'Web Development', 
                 'SaaS Products', 
-                'AI Solutions', 
-                'Mobile Apps', 
+                'AI Solutions',
                 'UI/UX Design',
                 'Social Media Marketing'
               ].map((item) => (
@@ -96,11 +95,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-primary-600" />
-                <span className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-600 dark:text-gray-400">+91 9106318135</span>
               </li>
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-primary-600" />
-                <span className="text-gray-600 dark:text-gray-400">123 Tech Lane, San Francisco, CA</span>
+                <span className="text-gray-600 dark:text-gray-400">Ahmedabad, India.</span>
               </li>
             </ul>
           </div>
@@ -111,7 +110,7 @@ const Footer: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               © {new Date().getFullYear()} WebsCoders. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            {/* <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy-policy" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-white">
                 Privacy Policy
               </Link>
@@ -121,7 +120,7 @@ const Footer: React.FC = () => {
               <Link to="/sitemap" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-white">
                 Sitemap
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

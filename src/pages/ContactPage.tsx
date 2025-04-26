@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
-
+import emailjs from 'emailjs-com';
 const ContactPage: React.FC = () => {
   // Form state
   const [formData, setFormData] = useState({
@@ -29,11 +29,20 @@ const ContactPage: React.FC = () => {
     setIsSubmitting(true);
     setError('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    emailjs.send(
+      'service_r7njpr4',        // Your service ID
+      'template_b6ap66f',        // Your template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      'HeR_0X-imJNXI5AuL'        // Your public key
+    )
+    .then(() => {
       setIsSubmitted(true);
-      // Reset form after submission
       setFormData({
         name: '',
         email: '',
@@ -41,8 +50,16 @@ const ContactPage: React.FC = () => {
         subject: '',
         message: '',
       });
-    }, 1500);
+    })
+    .catch((error) => {
+      console.error('EmailJS error:', error);
+      setError('Something went wrong. Please try again later.');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
   };
+  
   
   // Animation variants
   const container = {
@@ -77,13 +94,13 @@ const ContactPage: React.FC = () => {
     {
       icon: <Phone className="w-6 h-6 text-primary-600" />,
       title: "Call Us",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      content: "+91 9106318135",
+      link: "tel:+919106318135"
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary-600" />,
       title: "Visit Us",
-      content: "123 Tech Lane, San Francisco, CA",
+      content: "Ahmedabad, India",
       link: "https://maps.google.com"
     },
   ];
@@ -142,7 +159,7 @@ const ContactPage: React.FC = () => {
                 {contactInfo.map((item, index) => (
                   <motion.div 
                     key={index} 
-                    variants={item}
+                    // variants={item}
                     className="flex items-start gap-4"
                   >
                     <div className="h-12 w-12 rounded-lg bg-primary-50 dark:bg-primary-900/50 flex items-center justify-center flex-shrink-0">
@@ -165,15 +182,11 @@ const ContactPage: React.FC = () => {
                 <h3 className="text-xl font-bold mb-4">Business Hours</h3>
                 <div className="space-y-2 text-gray-600 dark:text-gray-400">
                   <p className="flex justify-between">
-                    <span>Monday - Friday:</span>
-                    <span>9:00 AM - 6:00 PM</span>
+                    <span>Monday to Friday:</span>
+                    <span>10:00 AM - 7:00 PM</span>
                   </p>
                   <p className="flex justify-between">
-                    <span>Saturday:</span>
-                    <span>10:00 AM - 4:00 PM</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Sunday:</span>
+                    <span>Saturday & Sunday:</span>
                     <span>Closed</span>
                   </p>
                 </div>
@@ -320,7 +333,7 @@ const ContactPage: React.FC = () => {
         <div className="container-custom">
           <div className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 h-[400px]">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.50764017948534!3d37.75781499602785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1656720919529!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9103570232146!2d72.52206727477044!3d23.027063416161617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85a789f709f3%3A0x247b137594876fa5!2sIscon%20Emporio!5e0!3m2!1sen!2sin!4v1745407488056!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

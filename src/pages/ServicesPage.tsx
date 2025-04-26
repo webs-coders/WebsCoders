@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Database, Bot, Globe, Smartphone, PenTool, Zap, Shield, BarChart, Cloud, RefreshCw, Users } from 'lucide-react';
+import { Code, Database, Bot, Globe , PenTool, Zap, Shield, RefreshCw, Users, Triangle, Layout, Server, Flame, Layers, Palette, Cloud } from 'lucide-react';
+import { FaDrupal, FaWordpress } from 'react-icons/fa6';
 
 const ServicesPage: React.FC = () => {
   // Animation variants
@@ -47,6 +48,7 @@ const ServicesPage: React.FC = () => {
       id: "web-development",
       title: "Web Development",
       icon: <Code className="w-12 h-12 text-primary-600" />,
+      categoriesimg:"https://img.freepik.com/free-photo/programming-background-collage_23-2149901791.jpg?t=st=1745550677~exp=1745554277~hmac=82061ebc034ccf72c5e131e9f21e57c928a0b9917ed1d28acb7d6a4cdab8d953&w=1380",
       description: "Crafting responsive, fast, and beautiful websites that represent your brand and drive results.",
       services: [
         { title: "Custom Website Development", description: "Tailored websites built from scratch to meet your unique requirements." },
@@ -60,6 +62,7 @@ const ServicesPage: React.FC = () => {
       title: "SaaS Products",
       icon: <Database className="w-12 h-12 text-primary-600" />,
       description: "Building powerful, scalable software-as-a-service solutions that grow with your business.",
+      categoriesimg: "https://img.freepik.com/free-photo/representation-user-experience-interface-design_23-2150169850.jpg?t=st=1745549986~exp=1745553586~hmac=3de4800c080b47eaee36909ee05de03fcbffa2aceb89c91fb0eba11762064355&w=1380",
       services: [
         { title: "Custom SaaS Development", description: "End-to-end development of cloud-based applications for your business needs." },
         { title: "Multi-tenant Architecture", description: "Secure, scalable systems that support multiple customers efficiently." },
@@ -71,6 +74,7 @@ const ServicesPage: React.FC = () => {
       id: "ai-solutions",
       title: "AI Solutions",
       icon: <Bot className="w-12 h-12 text-primary-600" />,
+      categoriesimg: "https://img.freepik.com/free-photo/man-robot-working-together-high-tech-office_23-2151966702.jpg?t=st=1745550142~exp=1745553742~hmac=d75f26668cfd5929e681e3de7f3cb4458906e34099743f66330fd23cb4966d32&w=740",
       description: "Leveraging artificial intelligence to create smart, data-driven applications and experiences.",
       services: [
         { title: "Chatbots & Virtual Assistants", description: "Intelligent conversation agents that enhance customer service." },
@@ -83,6 +87,7 @@ const ServicesPage: React.FC = () => {
       id: "social-media",
       title: "Social Media",
       icon: <Globe className="w-12 h-12 text-primary-600" />,
+      categoriesimg: "https://img.freepik.com/free-photo/social-media-marketing-concept-marketing-with-applications_23-2150063126.jpg?t=st=1745550366~exp=1745553966~hmac=bb495335f446d4139b0868740495b83ec540d8776418dcde6f56bb0030e9d94b&w=826",
       description: "Strategic social media marketing to boost your brand presence, engagement, and conversions.",
       services: [
         { title: "Social Media Strategy", description: "Comprehensive plans to achieve your business goals across platforms." },
@@ -91,23 +96,24 @@ const ServicesPage: React.FC = () => {
         { title: "Social Media Analytics", description: "Performance tracking and reporting to optimize your social presence." }
       ]
     },
-    {
-      id: "mobile-apps",
-      title: "Mobile Apps",
-      icon: <Smartphone className="w-12 h-12 text-primary-600" />,
-      description: "Developing intuitive, high-performance mobile applications for iOS and Android.",
-      services: [
-        { title: "Native App Development", description: "Platform-specific apps with optimal performance and user experience." },
-        { title: "Cross-platform Solutions", description: "Efficient development across multiple platforms without compromising quality." },
-        { title: "App Store Optimization", description: "Strategies to improve visibility and downloads in app stores." },
-        { title: "Mobile UI/UX Design", description: "Intuitive interfaces that delight users and drive engagement." }
-      ]
-    },
+    // {
+    //   id: "mobile-apps",
+    //   title: "Mobile Apps",
+    //   icon: <Smartphone className="w-12 h-12 text-primary-600" />,
+    //   description: "Developing intuitive, high-performance mobile applications for iOS and Android.",
+    //   services: [
+    //     { title: "Native App Development", description: "Platform-specific apps with optimal performance and user experience." },
+    //     { title: "Cross-platform Solutions", description: "Efficient development across multiple platforms without compromising quality." },
+    //     { title: "App Store Optimization", description: "Strategies to improve visibility and downloads in app stores." },
+    //     { title: "Mobile UI/UX Design", description: "Intuitive interfaces that delight users and drive engagement." }
+    //   ]
+    // },
     {
       id: "ui-ux-design",
       title: "UI/UX Design",
       icon: <PenTool className="w-12 h-12 text-primary-600" />,
       description: "Creating beautiful, intuitive interfaces and seamless user experiences that drive engagement.",
+      categoriesimg: "https://img.freepik.com/free-photo/representations-user-experience-interface-design_23-2150038900.jpg?t=st=1745550582~exp=1745554182~hmac=fdc88e188a72676117475a060ada99ed653e1c1b84157258d3e405e3c1d1b685&w=740",
       services: [
         { title: "User Research", description: "Deep understanding of your users' needs, behaviors, and pain points." },
         { title: "Interface Design", description: "Visually appealing UI that aligns with your brand identity." },
@@ -119,13 +125,21 @@ const ServicesPage: React.FC = () => {
 
   const technologies = [
     { icon: <Zap />, name: "React" },
+    { icon: <Triangle />, name: "Angular" }, // Replace with an Angular icon
     { icon: <Cloud />, name: "Node.js" },
+    { icon: <Layout />, name: "Next.js" }, // Replace with Next.js icon
+    { icon: <FaWordpress />, name: "WordPress" },
+    { icon: <FaDrupal />, name: "Drupal" },
+    { icon: <Globe />, name: "GraphQL" },
     { icon: <Bot />, name: "Python" },
-    { icon: <Database />, name: "MongoDB" },
-    { icon: <Shield />, name: "AWS" },
-    { icon: <BarChart />, name: "TensorFlow" },
+    { icon: <Palette />, name: "Tailwind" }, // Tailwind icon or color-related
+    { icon: <Layers />, name: ".NET" }, // Consider using a dotnet logo icon
     { icon: <RefreshCw />, name: "Docker" },
-    { icon: <Globe />, name: "GraphQL" }
+    { icon: <Shield />, name: "AWS" },
+    { icon: <Database />, name: "MongoDB" },
+    { icon: <Flame />, name: "Firebase" },
+    { icon: <Database />, name: "PostgreSQL" },
+    { icon: <Server />, name: "SQL Server" }
   ];
 
   const processSteps = [
@@ -255,7 +269,7 @@ const ServicesPage: React.FC = () => {
                 <motion.div variants={item} className="relative order-first lg:order-last">
                   <div className="relative z-10 rounded-xl overflow-hidden shadow-xl h-full">
                     <img 
-                      src={`https://images.pexels.com/photos/${2000 + index}/pexels-photo-${2000 + index}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`}
+                      src={category.categoriesimg}
                       alt={category.title} 
                       className="w-full h-full object-cover"
                     />
@@ -294,7 +308,7 @@ const ServicesPage: React.FC = () => {
                 className="bg-white dark:bg-slate-800 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-slate-700"
               >
                 <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center text-primary-600 dark:text-primary-400">
-                  {tech.icon}
+                {React.cloneElement(tech.icon, { className: "w-6 h-6" })}
                 </div>
                 <h3 className="font-medium">{tech.name}</h3>
               </div>

@@ -157,13 +157,13 @@ const HomePage: React.FC = () => {
             animate={heroInView ? "show" : "hidden"}
             className="text-center max-w-4xl mx-auto"
           >
-            <motion.div variants={item} className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
+            {/* <motion.div variants={item} className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-300 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
               </span>
               Launching in 2025 - Join our waiting list
-            </motion.div>
+            </motion.div> */}
             
             <motion.h1 variants={item} className="heading-xl mb-6">
               Creating <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-500">Digital Excellence</span> for the Modern Web

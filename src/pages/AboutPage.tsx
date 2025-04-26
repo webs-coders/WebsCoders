@@ -139,19 +139,19 @@ const AboutPage: React.FC = () => {
               
               <motion.div variants={item} className="grid grid-cols-2 gap-6 mb-8">
                 <div className="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-md border border-gray-100 dark:border-slate-700">
-                  <p className="text-3xl font-bold text-primary-600 mb-2">50+</p>
+                  <p className="text-3xl font-bold text-primary-600 mb-2">10+</p>
                   <p className="text-gray-600 dark:text-gray-400">Completed Projects</p>
                 </div>
                 <div className="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-md border border-gray-100 dark:border-slate-700">
-                  <p className="text-3xl font-bold text-primary-600 mb-2">25+</p>
+                  <p className="text-3xl font-bold text-primary-600 mb-2">5+</p>
                   <p className="text-gray-600 dark:text-gray-400">Happy Clients</p>
                 </div>
                 <div className="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-md border border-gray-100 dark:border-slate-700">
-                  <p className="text-3xl font-bold text-primary-600 mb-2">5+</p>
+                  <p className="text-3xl font-bold text-primary-600 mb-2">2+</p>
                   <p className="text-gray-600 dark:text-gray-400">Years Experience</p>
                 </div>
                 <div className="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-md border border-gray-100 dark:border-slate-700">
-                  <p className="text-3xl font-bold text-primary-600 mb-2">15+</p>
+                  <p className="text-3xl font-bold text-primary-600 mb-2">10+</p>
                   <p className="text-gray-600 dark:text-gray-400">Team Members</p>
                 </div>
               </motion.div>
@@ -201,7 +201,7 @@ const AboutPage: React.FC = () => {
               
               <motion.div variants={item} className="space-y-6 text-gray-600 dark:text-gray-300">
                 <p>
-                  Founded in 2020, WebsCoders began with a simple mission: to help businesses succeed in the digital landscape through innovative technology solutions.
+                  Founded in 2024, WebsCoders began with a simple mission: to help businesses succeed in the digital landscape through innovative technology solutions.
                 </p>
                 <p>
                   What started as a small team of passionate developers has grown into a full-service digital agency with expertise across web development, SaaS products, AI solutions, and social media marketing.
@@ -265,7 +265,7 @@ const AboutPage: React.FC = () => {
       </section>
       
       {/* Team Section */}
-      <section 
+      {/* <section 
         ref={teamRef}
         className="py-16 md:py-24"
       >
@@ -313,7 +313,7 @@ const AboutPage: React.FC = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
       
       {/* CTA Section */}
       <section 
