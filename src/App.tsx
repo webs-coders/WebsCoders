@@ -10,6 +10,7 @@ import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CustomCursor from './components/ui/CustomCursor';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 function App() {
   // Intersection observer for animation
@@ -20,6 +21,7 @@ function App() {
 
   // Handle custom cursor
   useEffect(() => {
+    
     const cursor = document.querySelector('.custom-cursor') as HTMLElement;
     if (!cursor) return;
     
@@ -56,13 +58,14 @@ function App() {
       <CustomCursor />
       <div ref={ref} className={`min-h-screen ${inView ? 'animate-fadeInUp' : 'opacity-0'}`}>
         <Layout>
+        <ScrollToTop /> {/* Add ScrollToTop here */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/blog" element={<BlogPage />} />
+            {/* <Route path="/blog" element={<BlogPage />} /> */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
