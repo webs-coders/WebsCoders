@@ -204,16 +204,19 @@ const ServicesPage: React.FC = () => {
             <motion.p variants={item} className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
               Comprehensive digital solutions tailored to your unique business needs. From web development and SaaS products to AI solutions and social media strategies.
             </motion.p>
-            
+
             <motion.div variants={item} className="flex flex-wrap gap-4">
               {categories.map((category) => (
-                <a 
+                <a
                   key={category.id}
-                  href={`#${category.id}`}
+                  href={`/services#${category.id}`}
+                  aria-label={`View ${category.title} services`}
                   className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  {React.cloneElement(category.icon, { className: "w-5 h-5 text-primary-600" })}
-                  <span className="font-medium">{category.title}</span>
+                  {React.cloneElement(category.icon, {
+                    className: "w-5 h-5 text-primary-600",
+                  })}
+                  <span className="font-medium">{category.title} Services</span>
                 </a>
               ))}
             </motion.div>
