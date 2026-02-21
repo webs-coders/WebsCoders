@@ -1,77 +1,46 @@
-import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useInView } from 'react-intersection-observer';
-import Layout from './components/layout/Layout';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import PortfolioPage from './pages/PortfolioPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import BlogPage from './pages/BlogPage';
-import NotFoundPage from './pages/NotFoundPage';
-import CustomCursor from './components/ui/CustomCursor';
-import ScrollToTop from './components/layout/ScrollToTop';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import Index from "./pages/Index";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Technologies from "./pages/Technologies";
+import Portfolio from "./pages/Portfolio";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import NotFound from "./pages/NotFound";
+import ScrollToTop from "@/components/ScrollToTop";
 
-function App() {
-  // Intersection observer for animation
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
 
-  // Handle custom cursor
-  useEffect(() => {
-    
-    const cursor = document.querySelector('.custom-cursor') as HTMLElement;
-    if (!cursor) return;
-    
-    const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
+const queryClient = new QueryClient();
 
-    window.addEventListener('mousemove', moveCursor);
-    
-    const links = document.querySelectorAll('a, button');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        cursor.classList.add('scale-150');
-        cursor.style.borderColor = 'rgb(139, 92, 246)';
-      });
-      link.addEventListener('mouseleave', () => {
-        cursor.classList.remove('scale-150');
-        cursor.style.borderColor = 'rgb(27, 112, 245)';
-      });
-    });
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', () => {});
-        link.removeEventListener('mouseleave', () => {});
-      });
-    };
-  }, []);
-
-  return (
-    <>
-      <CustomCursor />
-      <div ref={ref} className={`min-h-screen ${inView ? 'animate-fadeInUp' : 'opacity-0'}`}>
-        <Layout>
-        <ScrollToTop /> {/* Add ScrollToTop here */}
+const App = () => (
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+         <ScrollToTop /> 
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* <Route path="/blog" element={<BlogPage />} /> */}
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/technologies" element={<Technologies />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </Layout>
-      </div>
-    </>
-  );
-}
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
+);
 
 export default App;
