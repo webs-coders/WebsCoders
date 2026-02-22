@@ -99,14 +99,14 @@ const Blog = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post, i) => (
+              <Link key={post.slug} to={`/blog/${post.slug}`}>
               <motion.article
-                key={post.slug}
                 custom={i}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="group rounded-xl border border-border gradient-card overflow-hidden hover:border-primary/30 transition-all duration-300"
+                className="group rounded-xl border border-border gradient-card overflow-hidden hover:border-primary/30 transition-all duration-300 h-full"
               >
                 <div className="relative h-40 overflow-hidden">
                   <img
@@ -136,6 +136,7 @@ const Blog = () => {
                   </p>
                 </div>
               </motion.article>
+              </Link>
             ))}
           </div>
         </div>
