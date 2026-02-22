@@ -86,15 +86,17 @@ const Portfolio = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((p, i) => (
+            {projects.map((p, i) => {
+              const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+              return (
+              <Link key={p.title} to={`/portfolio/${slug}`}>
               <motion.div
-                key={p.title}
                 custom={i}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="group rounded-xl border border-border gradient-card overflow-hidden hover:border-primary/30 transition-all duration-300"
+                className="group rounded-xl border border-border gradient-card overflow-hidden hover:border-primary/30 transition-all duration-300 h-full"
               >
                 {/* <div className="h-48 gradient-hero flex items-center justify-center">
                   <ExternalLink size={32} className="text-muted-foreground/30 group-hover:text-primary/50 transition-colors" />
@@ -127,7 +129,9 @@ const Portfolio = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              </Link>
+              );
+            })}
           </div>
 
           <motion.div

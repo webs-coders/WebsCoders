@@ -13,6 +13,8 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import BlogPost from "./pages/BlogPost";
+import PortfolioDetail from "./pages/PortfolioDetail";
 import ScrollToTop from "@/components/ScrollToTop";
 
 
@@ -33,6 +35,8 @@ const App = () => (
             <Route path="/technologies" element={<Technologies />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />

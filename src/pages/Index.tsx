@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import FAQSection from "@/components/FAQSection";
+import Testimonials from "@/components/Testimonials";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const stats = [
@@ -22,15 +23,15 @@ const services = [
 ];
 
 const countries = [
-  { flag: "🇺🇸", name: "US" },
-  { flag: "🇬🇧", name: "UK" },
-  { flag: "🇦🇺", name: "Australia" },
-  { flag: "🇦🇪", name: "UAE" },
-  { flag: "🇨🇦", name: "Canada" },
-  { flag: "🇳🇱", name: "Netherlands" },
-  { flag: "🇩🇪", name: "Germany" },
-  { flag: "🇩🇰", name: "Denmark" },
-  { flag: "🇮🇳", name: "India" },
+  { name: "US", code: "us" },
+  { name: "UK", code: "gb" },
+  { name: "Australia", code: "au" },
+  { name: "UAE", code: "ae" },
+  { name: "Canada", code: "ca" },
+  { name: "Netherlands", code: "nl" },
+  { name: "Germany", code: "de" },
+  { name: "Denmark", code: "dk" },
+  { name: "India", code: "in" },
 ];
 
 const whyUs = [
@@ -149,10 +150,18 @@ const Index = () => {
             <span className="text-primary-foreground/70 text-sm font-medium mr-2">Serving Clients In:</span>
             {countries.map((c) => (
               <span
-                key={c.name}
+                key={c.code}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 backdrop-blur-sm text-primary-foreground text-sm border border-primary-foreground/20"
               >
-                <span className="text-base">{c.flag}</span>
+                <img
+                  src={`https://flagcdn.com/w20/${c.code}.png`}
+                  srcSet={`https://flagcdn.com/w40/${c.code}.png 2x`}
+                  width="16"
+                  height="12"
+                  alt={`${c.name} flag`}
+                  className="inline-block rounded-sm"
+                  loading="lazy"
+                />
                 {c.name}
               </span>
             ))}
@@ -268,6 +277,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* FAQ Section */}
       <FAQSection />
