@@ -17,7 +17,7 @@ const SEOHead = ({
   ogImage = "https://webscoders.com/og-image.png",
   schema,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | WebScoders® - Smart Web Solutions with AI Edge`;
+  const fullTitle = `${title} | WebScoders® (Webs Coders)`;
 
   return (
     <Helmet>
@@ -25,16 +25,16 @@ const SEOHead = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <meta name="robots" content="index, follow" />
       <meta name="author" content="WebScoders" />
+      <meta name="robots" content="index, follow" />
 
       {/* Canonical */}
       <link rel="canonical" href={canonical} />
 
       {/* Open Graph */}
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
 
@@ -44,7 +44,7 @@ const SEOHead = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* Schema */}
+      {/* Schema (Page-level) */}
       {schema && (
         <script type="application/ld+json">
           {JSON.stringify(schema)}
